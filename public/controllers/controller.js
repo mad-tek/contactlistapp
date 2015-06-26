@@ -28,4 +28,11 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http){
 			refresh();
 		});
 	};
+
+	$scope.edit = function(id){
+		console.log(id);
+		$http.get('/contactlist/' + id).success(function(response){
+			$scope.contact = response;
+		});
+	};
 }]);
